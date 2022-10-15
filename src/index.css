@@ -1,27 +1,27 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
-  }
+    }
   
-  ol, ul {
+ol, ul {
     padding-left: 30px;
   }
   
-  .row:after {
+.row:after {
     clear: both;
     content: "";
     display: table;
-  }
+}
   
-  .status {
+.status {
     margin-bottom: 10px;
-  }
+}
 
-  .board {
+.board {
     background-color: #777;
-  } 
+} 
   
-  .square {
+.square {
     background: rgb(136, 29, 29);
     border: 1px solid rgb(0, 0, 0);
     float: left;
@@ -34,26 +34,26 @@ body {
     padding: 0;
     text-align: center;
     width: 300px;
-  }
+}
   
-  .square:focus {
+.square:focus {
     outline: none;
-  }
+}
   
-  .kbd-navigation .square:focus {
+.kbd-navigation .square:focus {
     background: #ddd;
-  }
+}
   
-  .app {
+.app {
     display: flex;
     justify-content: center;
     flex-direction: row;
-  }
+}
   
-  .app-info {
+.app-info {
     margin-left: 20px;
-  }
+}
 
 .imageContainer {
-  text-align: center;
+    text-align: center;
 }
