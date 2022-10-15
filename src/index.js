@@ -1,19 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Circle from './Circle';
+import Square from './Square';
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button
-        className="square"
-        onClick={() => this.props.onClick()}
-      >
-      {this.props.value}
-      </button>
-    );
-  }
-}
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -49,7 +39,10 @@ class MainContainer extends React.Component {
           {this.renderButton(0)}{this.renderButton(1)}{this.renderButton(2)}
         </div>
         <div className="imageContainer">
-          {this.renderImage()}
+          {
+            <Circle />
+            //this.renderImage()
+          }
         </div>
       </div>
     );

@@ -53,4 +53,7 @@ body {
   .app-info {
     margin-left: 20px;
   }
-  
+
+.imageContainer {
+  text-align: center;
+}
