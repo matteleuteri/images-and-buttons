@@ -10,11 +10,22 @@ class MainContainer extends React.Component {
         super(props);
         this.state = {
             filters: ["filter 1", "filter 2", "filter 3"],
+            color: "red",
         };
     }
 
     handleClick(i) {
-        console.log(i);
+
+        // set color to some value depending on i
+        if (i===0) {
+            this.setState({color: "red"});
+        } else if (i===1) {
+            this.setState({color: "green"});
+        } else if (i===2) {
+            this.setState({color: "blue"});
+        } else {
+            this.setState({color: "black"});
+        }
     }
 
     renderButton(i) {
@@ -40,7 +51,9 @@ class MainContainer extends React.Component {
                 </div>
                 <div className="imageContainer">
                 {
-                    <Circle />
+                    <Circle>
+                        {this.state.color}                    
+                    </Circle>
                 }
                 </div>
             </div>
@@ -52,7 +65,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <div className="board">
+                <div className="mainContainer">
                     <MainContainer />
                 </div>
                 <div className="info">

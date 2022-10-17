@@ -15,9 +15,8 @@ const getPixelRatio = context => {
     return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const Circle = () => {
+const Circle = color => {
     let ref = useRef();
-    
     useEffect(() => {
         let canvas = ref.current;
         let context = canvas.getContext('2d');
@@ -47,6 +46,7 @@ const Circle = () => {
                 0,
                 2 * Math.PI
             );
+            context.fillStyle=color.children;
             context.fill();
             i += 0.05;
             requestId = requestAnimationFrame(render);
@@ -61,7 +61,7 @@ const Circle = () => {
     return (
         <canvas
             ref={ref} 
-            style={{ width: '200px', height: '200px' }}
+            style={{ width: '400px', height: '400px'}}
         />
     );
 };
