@@ -9,23 +9,14 @@ class MainContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            filters: ["filter 1", "filter 2", "filter 3"],
+            //TODO find a way to better unite these two fields.
+            filters: ["red", "blue", "green"],
             color: "red",
         };
     }
 
     handleClick(i) {
-
-        // set color to some value depending on i
-        if (i===0) {
-            this.setState({color: "red"});
-        } else if (i===1) {
-            this.setState({color: "green"});
-        } else if (i===2) {
-            this.setState({color: "blue"});
-        } else {
-            this.setState({color: "black"});
-        }
+        this.setState({color: this.state.filters[i]});
     }
 
     renderButton(i) {
