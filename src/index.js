@@ -4,14 +4,13 @@ import './index.css';
 import Circle from './Circle';
 import Square from './Square';
 
-
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             //TODO find a way to better unite these two fields.
             filters: ["red", "blue", "green"],
-            color: "red",
+            color: "red"
         };
     }
 
@@ -22,7 +21,7 @@ class MainContainer extends React.Component {
     renderButton(i) {
         return (
             <Square
-                value={this.state.filters[i]}
+                color={this.state.filters[i]}
                 onClick={() => this.handleClick(i)}
             />
         );

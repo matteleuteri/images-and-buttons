@@ -11,7 +11,7 @@ const getPixelRatio = context => {
     context.oBackingStorePixelRatio ||
     context.backingStorePixelRatio ||
     1;
-    
+
     return (window.devicePixelRatio || 1) / backingStore;
 };
 
