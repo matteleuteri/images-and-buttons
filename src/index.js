@@ -9,16 +9,30 @@ class MainContainer extends React.Component {
         super(props);
         this.state = {
             //TODO find a way to better unite these two fields.
-            filters: ["red", "blue", "green"],
-            color: "red"
+            filters: ["red", "blue", "green", "yellow"],
+            color: "red",
+            frame: 1,
+            fps: 4,
+            numFrames: 5
         };
     }
 
     handleClick(i) {
-        this.setState({color: this.state.filters[i]});
+        this.setState({
+            color: this.state.filters[i]
+        });
     }
 
     renderButton(i) {
+        return (
+            <Square
+                color={this.state.filters[i]}
+                onClick={() => this.handleClick(i)}
+            />
+        );
+    }
+
+    renderArrow(i) {
         return (
             <Square
                 color={this.state.filters[i]}
@@ -36,8 +50,8 @@ class MainContainer extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    {this.renderButton(0)}{this.renderButton(1)}{this.renderButton(2)}
+                <div className="topRow">
+                    {this.renderButton(0)}{this.renderButton(1)}{this.renderButton(2)}{this.renderButton(3)}
                 </div>
                 <div className="imageContainer">
                 {
@@ -45,6 +59,9 @@ class MainContainer extends React.Component {
                         {this.state.color}                    
                     </Circle>
                 }
+                </div>
+                <div className="bottomRow">
+                    {this.renderArrow(0)}{this.renderArrow(1)}{this.renderArrow(2)}{this.renderArrow(3)}
                 </div>
             </div>
         );

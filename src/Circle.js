@@ -15,7 +15,7 @@ const getPixelRatio = context => {
     return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const Circle = color => {
+const Circle = (color, frameNum) => { // frameNum and others are passed to tell the Circle which frame to render, and how to get the next frame
     let ref = useRef();
     useEffect(() => {
         let canvas = ref.current;
@@ -36,9 +36,15 @@ const Circle = color => {
         let requestId, i = 0;
 
         const render = () => {
-            console.log("rendersing" + ((canvas.width / 2)*(Math.abs(Math.cos(i)))));
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.beginPath();
+            
+            
+            
+            
+            
+            
+            // replace this with animation code.
             context.arc(
                 canvas.width / 2,
                 canvas.height / 2,
@@ -49,6 +55,16 @@ const Circle = color => {
             context.fillStyle=color.children;
             context.fill();
             i += 0.05;
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
             requestId = requestAnimationFrame(render);
         };
 
