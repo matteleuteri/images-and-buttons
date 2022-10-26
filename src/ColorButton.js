@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Square extends React.Component {
+class ColorButton extends React.Component {
     render() {
         return (
             <button
@@ -13,4 +13,4 @@ class Square extends React.Component {
     }
 }
 
-export default Square
+export default ColorButton; 

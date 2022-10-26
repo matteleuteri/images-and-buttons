@@ -15,7 +15,7 @@ const getPixelRatio = context => {
     return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const Circle = (color, frameNum) => { // frameNum and others are passed to tell the Circle which frame to render, and how to get the next frame
+const Circle = (color, filter) => { // frameNum and others are passed to tell the Circle which frame to render, and how to get the next frame
     let ref = useRef();
     useEffect(() => {
         let canvas = ref.current;
@@ -56,7 +56,7 @@ const Circle = (color, frameNum) => { // frameNum and others are passed to tell 
             context.fill();
             i += 0.05;
          
-         
+            //console.log('filter: ' + filter);
          
          
          

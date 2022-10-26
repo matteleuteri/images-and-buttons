@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Circle from './Circle';
-import Square from './Square';
+import ColorButton from './ColorButton';
+import FilterButton from './FilterButton';
 
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             //TODO find a way to better unite these two fields.
-            filters: ["red", "blue", "green", "yellow"],
+            colors: ["red", "blue", "green", "yellow"],
             color: "red",
+            filters: ["none", "grayscale(1)"],
+            filter: "grayscale(0.2)",
             frame: 1,
             fps: 4,
             numFrames: 5
@@ -19,23 +22,24 @@ class MainContainer extends React.Component {
 
     handleClick(i) {
         this.setState({
-            color: this.state.filters[i]
+            color: this.state.colors[i],
+            filter: this.state.filters[i]
         });
     }
 
-    renderButton(i) {
+    renderFilterButton(i) {
         return (
-            <Square
-                color={this.state.filters[i]}
+            <FilterButton
+                filter={this.state.filters[i]}
                 onClick={() => this.handleClick(i)}
             />
         );
     }
 
-    renderArrow(i) {
+    renderColorButton(i) {
         return (
-            <Square
-                color={this.state.filters[i]}
+            <ColorButton
+                color={this.state.colors[i]}
                 onClick={() => this.handleClick(i)}
             />
         );
@@ -51,17 +55,17 @@ class MainContainer extends React.Component {
         return (
             <div>
                 <div className="topRow">
-                    {this.renderButton(0)}{this.renderButton(1)}{this.renderButton(2)}{this.renderButton(3)}
+                    {this.renderFilterButton(0)}{this.renderFilterButton(1)}{this.renderFilterButton(2)}{this.renderFilterButton(3)}
                 </div>
                 <div className="imageContainer">
                 {
                     <Circle>
-                        {this.state.color}                    
+                        {this.state.color}                  
                     </Circle>
                 }
                 </div>
                 <div className="bottomRow">
-                    {this.renderArrow(0)}{this.renderArrow(1)}{this.renderArrow(2)}{this.renderArrow(3)}
+                    {this.renderColorButton(0)}{this.renderColorButton(1)}{this.renderColorButton(2)}{this.renderColorButton(3)}
                 </div>
             </div>
         );
